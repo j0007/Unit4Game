@@ -1,0 +1,10 @@
+body{ 
+    background-image: url("../images/pokebackground.png");
+    height: 100%;
+    width:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 25px;
+    font-family: 'Press Start 2P', cursive;
+}
