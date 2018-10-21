@@ -21,73 +21,55 @@ var character = [ {
     counterAttack:25,
 }]
 
+
+
+//hide enemy/defenders images on start
+$("#enKarp,#enLax,#enDuck,#enPod").hide();
+$("#defKarp,#defLax,#defDuck,#defPod").hide();
+
 //properties
 function addproperties() {
     $("#infoOne").append("Name: " + character[i].name + "<br>");
-    $("#infoOne").append("Health: " + character[i].health + "<br>"); 
+    $("#infoOne").append("Health: " + character[i].health + "<br>");
+    return character[i].attack; 
 }
 
 function addproperties2() {
     $("#infoTwo").append("Name: " + character[i].name + "<br>");
-    $("#infoTwo").append("Health: " + character[i].health + "<br>"); 
+    $("#infoTwo").append("Health: " + character[i].health + "<br>");
+    return character[i].counterAttack; 
 }
-
-var initialChar = ["#magiKarp","#snorLax","#psyDuck","#metaPod"]
-
-//hide enemy/defenders images on start
-$("#enKarp").hide();
-$("#enLax").hide();
-$("#enDuck").hide();
-$("#enPod").hide();
-$("#defKarp").hide();
-$("#defLax").hide();
-$("#defDuck").hide();
-$("#defPod").hide();
 
 // Initial Character Select
 
  $("#magiKarp").click(function() {
      i=0; addproperties();
-     $(initialChar[1]).hide();
-     $(initialChar[2]).hide();
-     $(initialChar[3]).hide();
+     $("#snorLax,#psyDuck,#metaPod").hide();
      $("#instructBox").text("Choose Your Enemy!");
-     $("#enLax").show();
-     $("#enDuck").show();
-     $("#enPod").show();
+     $("#enLax,#enDuck,#enPod").show();
      });
     
  $("#snorLax").click(function() {
      i=1; addproperties();
-     $(initialChar[0]).hide();
-     $(initialChar[2]).hide();
-     $(initialChar[3]).hide();
+     $("#magiKarp,#psyDuck,#metaPod").hide();
      $("#instructBox").text("Choose Your Enemy!");
-     $("#enKarp").show();
-     $("#enDuck").show();
-     $("#enPod").show();
+     $("#enKarp,#enDuck,#enPod").show();
+
       });
 
  $("#psyDuck").click(function() {
      i=2; addproperties();
-     $(initialChar[0]).hide();
-     $(initialChar[1]).hide();
-     $(initialChar[3]).hide();
+     $("#snorLax,#magiKarp,#metaPod").hide();
      $("#instructBox").text("Choose Your Enemy!");
-     $("#enLax").show();
-     $("#enKarp").show();
-     $("#enPod").show();
+     $("#enLax,#enKarp,#enPod").show();
       });
 
  $("#metaPod").click(function() {
      i=3; addproperties();; 
-     $(initialChar[0]).hide();
-     $(initialChar[1]).hide();
-     $(initialChar[2]).hide();
+     $("#snorLax,#psyDuck,#magiKarp").hide();
      $("#instructBox").text("Choose Your Enemy!");
-     $("#enLax").show();
-     $("#enDuck").show();
-     $("#enKarp").show();
+     $("#enLax,#enDuck,#enKarp").show();
+
       });
     
 
@@ -126,16 +108,18 @@ $("#enPod").click(function() {
    
 
 
-//Attack Sequence
+//Attack Sequence Variables
+var playerHealth ="";
+var defHealth ="";
+var playerAttack="";
+var defCounter="";
 
-function customShow(element)
-{
-    if( $( element )===( ':visible' ) )
-        console.log(true);
 
-    $( element ).show();
-    return false;
-}
+$(".attackBtn").on("click", function() {
+   
+   alert("Doesnt Work Yet ):");
+
+});
 
     
 
