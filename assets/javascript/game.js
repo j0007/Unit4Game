@@ -21,21 +21,24 @@ var character = [ {
     counterAttack:25,
 }]
 
+//properties
 function addproperties() {
-    $("#info").append("Name: " + character[i].name + "<br>");
-    $("#info").append("Health: " + character[i].health + "<br>");
-    $("#info").append("Attack: " + character[i].attack + "<br>");
-    $("#info").append("Counter: " + character[i].counterAttack + "<br>"); 
+    $("#infoOne").append("Name: " + character[i].name + "<br>");
+    $("#infoOne").append("Health: " + character[i].health + "<br>"); 
+}
+
+function addproperties2() {
+    $("#infoTwo").append("Name: " + character[i].name + "<br>");
+    $("#infoTwo").append("Health: " + character[i].health + "<br>"); 
 }
 
 var initialChar = ["#magiKarp","#snorLax","#psyDuck","#metaPod"]
 
-//hide enemy images on start
+//hide enemy/defenders images on start
 $("#enKarp").hide();
 $("#enLax").hide();
 $("#enDuck").hide();
 $("#enPod").hide();
-
 $("#defKarp").hide();
 $("#defLax").hide();
 $("#defDuck").hide();
@@ -93,14 +96,14 @@ $("#defPod").hide();
 //Select Defender
 
 $("#enKarp").click(function() {
-    i=0; addproperties();
+    i=0; addproperties2();
     $("#enKarp").hide();
     $("#instructBox").text("Fight!");
     $("#defKarp").show();
     });
    
 $("#enLax").click(function() {
-    i=1; addproperties();
+    i=1; addproperties2();
     $("#enLax").hide();
     $("#instructBox").text("Fight!");
     $("#defLax").show();
@@ -108,19 +111,31 @@ $("#enLax").click(function() {
      });
 
 $("#enDuck").click(function() {
-    i=2; addproperties();
+    i=2; addproperties2();
     $("#enDuck").hide();
     $("#instructBox").text("Fight!");
-    $("#enDuck").show();
+    $("#defDuck").show();
      });
 
 $("#enPod").click(function() {
-    i=3; addproperties();
+    i=3; addproperties2();
     $("#enPod").hide();
     $("#instructBox").text("Fight!");
     $("#defPod").show();
      });
    
+
+
+//Attack Sequence
+
+function customShow(element)
+{
+    if( $( element )===( ':visible' ) )
+        console.log(true);
+
+    $( element ).show();
+    return false;
+}
 
     
 
