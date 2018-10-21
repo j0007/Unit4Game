@@ -7,44 +7,53 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="assets/javascript/game.js"></script>
+    
+
 </head>
 
 <body>
 
-<div class="container text-white float-left m-0 p-0 w-100">
+<div class="container text-white">
     <div class="row">
             
         <!-- Available Enemies Zone-->
-            <div class="col-6 border" id="enCharacter">Enemies: </div>
+            <div class="col-7 border" id="enCharacter">Enemies:
+            </div>
 
         <!-- Available Defender Zone-->    
-            <div class="col-6 border" id="defCharacter" >Defender: </div>
-        
+            <div class="col-5 border" id="defCharacter" >Defender: </div>
+         
         </div>
 
         <br>
-        <br>
+
+        <!-- Instructions-->
+        <div class="row">
+                <div class="col-12 border text-center" id="instructBox"> <h1>Instructions</h1></div>
+            </div>
+
         <br>
 
         <!-- Your Character Zone--> 
     <div class="row">
-                <div class="col-12 border" id="myCharacter"> My Character:</div>
+                <div class="col-12 border pr-10 m-0"id="myCharacter"> Character:
+                        <img id=magiKarp src="assets/images/Magikarp1.png">
+                        <img id=snorLax src="assets/images/Snorlax1.png">
+                        <img id=psyDuck src="assets/images/Psyduck.png">
+                        <img id=metaPod src="assets/images/Metapod1.png">
+                </div>
             </div>
     </div>
 </div>
 
-
    
-
-
 
 <!-- InfoBox and Buttons-->
     <div class="container">
-        <div class="row fixed-bottom border pb-3">
+        <div class="row fixed-bottom border pb-1">
 
-            <div class="col-8">
-                <p class="info text-white">BLAH</p>
+            <div class="col-8" >
+                <p class="text-white" id="info"></p>
             </div>
             
             <div class= "col-4" id="buttons">
@@ -54,8 +63,9 @@
         </div>    
     </div>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
-
+    <script src="assets/javascript/game.js"></script>
 
 </body>
 </html>
