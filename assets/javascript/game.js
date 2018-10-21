@@ -21,10 +21,6 @@ var character = [ {
     counterAttack:25,
 }]
 
-for (var i = 0; i < character; i++); {
-
-};
-
 function addproperties() {
     $("#info").append("Name: " + character[i].name + "<br>");
     $("#info").append("Health: " + character[i].health + "<br>");
@@ -32,25 +28,44 @@ function addproperties() {
     $("#info").append("Counter: " + character[i].counterAttack + "<br>"); 
 }
 
- $("#magiKarp").click(function() {
-     i=0; addproperties();
-      });
+var initialChar = ["#magiKarp","#snorLax","#psyDuck","#metaPod"]
 
+
+// Initial Character Select
+ $("#magiKarp").click(function fc() {
+     i=0; addproperties();
+     $(initialChar[1]).hide();
+     $(initialChar[2]).hide();
+     $(initialChar[3]).hide();
+     $("#instructBox").text("Choose Your Enemy!");
+     });
+    
  $("#snorLax").click(function() {
      i=1; addproperties();
+     $(initialChar[0]).hide();
+     $(initialChar[2]).hide();
+     $(initialChar[3]).hide();
+     $("#instructBox").text("Choose Your Enemy!");
       });
 
  $("#psyDuck").click(function() {
      i=2; addproperties();
+     $(initialChar[0]).hide();
+     $(initialChar[1]).hide();
+     $(initialChar[3]).hide();
+     $("#instructBox").text("Choose Your Enemy!");
       });
 
  $("#metaPod").click(function() {
      i=3; addproperties();; 
+     $(initialChar[0]).hide();
+     $(initialChar[1]).hide();
+     $(initialChar[2]).hide();
+     $("#instructBox").text("Choose Your Enemy!");
       });
 
+//Select Defender
 
 
-
-//Window load
 
 
