@@ -30,14 +30,28 @@ function addproperties() {
 
 var initialChar = ["#magiKarp","#snorLax","#psyDuck","#metaPod"]
 
+//hide enemy images on start
+$("#enKarp").hide();
+$("#enLax").hide();
+$("#enDuck").hide();
+$("#enPod").hide();
+
+$("#defKarp").hide();
+$("#defLax").hide();
+$("#defDuck").hide();
+$("#defPod").hide();
 
 // Initial Character Select
- $("#magiKarp").click(function fc() {
+
+ $("#magiKarp").click(function() {
      i=0; addproperties();
      $(initialChar[1]).hide();
      $(initialChar[2]).hide();
      $(initialChar[3]).hide();
      $("#instructBox").text("Choose Your Enemy!");
+     $("#enLax").show();
+     $("#enDuck").show();
+     $("#enPod").show();
      });
     
  $("#snorLax").click(function() {
@@ -46,6 +60,9 @@ var initialChar = ["#magiKarp","#snorLax","#psyDuck","#metaPod"]
      $(initialChar[2]).hide();
      $(initialChar[3]).hide();
      $("#instructBox").text("Choose Your Enemy!");
+     $("#enKarp").show();
+     $("#enDuck").show();
+     $("#enPod").show();
       });
 
  $("#psyDuck").click(function() {
@@ -54,6 +71,9 @@ var initialChar = ["#magiKarp","#snorLax","#psyDuck","#metaPod"]
      $(initialChar[1]).hide();
      $(initialChar[3]).hide();
      $("#instructBox").text("Choose Your Enemy!");
+     $("#enLax").show();
+     $("#enKarp").show();
+     $("#enPod").show();
       });
 
  $("#metaPod").click(function() {
@@ -62,10 +82,47 @@ var initialChar = ["#magiKarp","#snorLax","#psyDuck","#metaPod"]
      $(initialChar[1]).hide();
      $(initialChar[2]).hide();
      $("#instructBox").text("Choose Your Enemy!");
+     $("#enLax").show();
+     $("#enDuck").show();
+     $("#enKarp").show();
       });
+    
+
+
 
 //Select Defender
 
+$("#enKarp").click(function() {
+    i=0; addproperties();
+    $("#enKarp").hide();
+    $("#instructBox").text("Fight!");
+    $("#defKarp").show();
+    });
+   
+$("#enLax").click(function() {
+    i=1; addproperties();
+    $("#enLax").hide();
+    $("#instructBox").text("Fight!");
+    $("#defLax").show();
+
+     });
+
+$("#enDuck").click(function() {
+    i=2; addproperties();
+    $("#enDuck").hide();
+    $("#instructBox").text("Fight!");
+    $("#enDuck").show();
+     });
+
+$("#enPod").click(function() {
+    i=3; addproperties();
+    $("#enPod").hide();
+    $("#instructBox").text("Fight!");
+    $("#defPod").show();
+     });
+   
+
+    
 
 
 
