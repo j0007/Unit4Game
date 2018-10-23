@@ -22,6 +22,11 @@ var character = [ {
 }]
 
 
+//Attack Sequence Variables
+var playerHealth ="";
+var defHealth ="";
+var playerAttack="";
+var defCounter="";
 
 //hide enemy/defenders images on start
 $("#enKarp,#enLax,#enDuck,#enPod").hide();
@@ -31,29 +36,39 @@ $("#defKarp,#defLax,#defDuck,#defPod").hide();
 function addproperties() {
     $("#infoOne").append("Name: " + character[i].name + "<br>");
     $("#infoOne").append("Health: " + character[i].health + "<br>");
-    return character[i].attack; 
+    playerHealth = character[i].health
+   
+
 }
 
 function addproperties2() {
     $("#infoTwo").append("Name: " + character[i].name + "<br>");
     $("#infoTwo").append("Health: " + character[i].health + "<br>");
-    return character[i].counterAttack; 
+ 
 }
 
+
 // Initial Character Select
+
 
  $("#magiKarp").click(function() {
      i=0; addproperties();
      $("#snorLax,#psyDuck,#metaPod").hide();
      $("#instructBox").text("Choose Your Enemy!");
      $("#enLax,#enDuck,#enPod").show();
-     });
+     playerAttack = character[i].attack;
+     playerHealth = character[i].health;
+     }); 
+
+  
     
  $("#snorLax").click(function() {
      i=1; addproperties();
      $("#magiKarp,#psyDuck,#metaPod").hide();
      $("#instructBox").text("Choose Your Enemy!");
      $("#enKarp,#enDuck,#enPod").show();
+     playerAttack = character[i].attack;
+     playerHealth = character[i].health;
 
       });
 
@@ -62,6 +77,8 @@ function addproperties2() {
      $("#snorLax,#magiKarp,#metaPod").hide();
      $("#instructBox").text("Choose Your Enemy!");
      $("#enLax,#enKarp,#enPod").show();
+     playerAttack = character[i].attack;
+     playerHealth = character[i].health;
       });
 
  $("#metaPod").click(function() {
@@ -69,6 +86,8 @@ function addproperties2() {
      $("#snorLax,#psyDuck,#magiKarp").hide();
      $("#instructBox").text("Choose Your Enemy!");
      $("#enLax,#enDuck,#enKarp").show();
+     playerAttack = character[i].attack;
+     playerHealth = character[i].health;
 
       });
     
@@ -77,11 +96,14 @@ function addproperties2() {
 
 //Select Defender
 
+
 $("#enKarp").click(function() {
     i=0; addproperties2();
     $("#enKarp").hide();
     $("#instructBox").text("Fight!");
     $("#defKarp").show();
+    defCounter = character[i].counterAttack;
+    defHealth = character[i].health;
     });
    
 $("#enLax").click(function() {
@@ -89,6 +111,8 @@ $("#enLax").click(function() {
     $("#enLax").hide();
     $("#instructBox").text("Fight!");
     $("#defLax").show();
+    defCounter = character[i].counterAttack;
+    defHealth = character[i].health;
 
      });
 
@@ -97,6 +121,8 @@ $("#enDuck").click(function() {
     $("#enDuck").hide();
     $("#instructBox").text("Fight!");
     $("#defDuck").show();
+    defCounter = character[i].counterAttack;
+    defHealth = character[i].health;
      });
 
 $("#enPod").click(function() {
@@ -104,24 +130,32 @@ $("#enPod").click(function() {
     $("#enPod").hide();
     $("#instructBox").text("Fight!");
     $("#defPod").show();
+    defCounter = character[i].counterAttack;
+    defHealth = character[i].health;
      });
    
 
 
-//Attack Sequence Variables
-var playerHealth ="";
-var defHealth ="";
-var playerAttack="";
-var defCounter="";
+//Attack Sequence 
+
+$("#attackBtn").click(function() {
+
+defHealth = (defHealth - playerAttack);
+playerHealth = (playerHealth - defCounter);
+$("#instructBox").text("You've Dealt " + playerAttack + " Damage, " + "Enemy countered " + defCounter + " damage!" );
+if (playerHealth > 0) { playerAttack = playerAttack + 8};
+if (playerHealth <= 0) {
+    alert("You have be defeated!")}
+if (defHealth <= 0) 
+{alert("You Win!")}
 
 
-$(".attackBtn").on("click", function() {
-   
-   alert("Doesnt Work Yet ):");
-
+console.log(playerAttack,playerHealth,defHealth,defCounter)
 });
 
-    
+
+
+
 
 
 
