@@ -33,6 +33,7 @@ var defCounter="";
 //hide enemy/defenders images on start
 $("#enKarp,#enLax,#enDuck,#enPod").hide();
 $("#defKarp,#defLax,#defDuck,#defPod").hide();
+$("#attackBtn").hide();
 
 
 //properties
@@ -48,6 +49,7 @@ function addproperties() {
 function addproperties2() {
     $("#infoTwo").text ("Name: " + character[i].name + " Health: " + character[i].health);
     $("#instructBox").text("Fight!");
+    $("#attackBtn").show();
     defName = character[i].name;
     defCounter = character[i].counterAttack;
     defHealth = character[i].health;
@@ -92,28 +94,24 @@ $("#enKarp").click(function() {
     i=0; addproperties2();
     $("#enKarp").hide();
     $("#defKarp").show();
-    $("#attackBtn").show();
     });
    
 $("#enLax").click(function() {
     i=1; addproperties2();
     $("#enLax").hide();
     $("#defLax").show();
-    $("#attackBtn").show();
      });
 
 $("#enDuck").click(function() {
     i=2; addproperties2();
     $("#enDuck").hide();
     $("#defDuck").show();
-    $("#attackBtn").show();
      });
 
 $("#enPod").click(function() {
     i=3; addproperties2();
     $("#enPod").hide();
     $("#defPod").show();
-    $("#attackBtn").show();
      });
    
 
@@ -128,7 +126,7 @@ $("#attackBtn").click(function() {
         $("#infoOne").text ("Name: " + playerName + " Health: " + playerHealth);
         $("#infoTwo").text ("Name: " + defName + " Health: " + defHealth);
             
-        if (playerHealth > 0) { playerAttack = playerAttack + 8} 
+        if (playerHealth > 0) { playerAttack = playerAttack + 10} 
         
         if (playerHealth <= 0) {
                 $("#instructBox").text("You have Fainted, You Lose!")
@@ -145,11 +143,14 @@ $("#attackBtn").click(function() {
                 $("#instructBox").text("You've Both Fainted! Its a tie!")
                 $("#attackBtn").hide();
                     }
-    
+        // If All Enemies are Defeated             
+        if ($("#enKarp").is(':hidden') && $("#enLax").is(':hidden') && $("#enDuck").is(':hidden') && $("#enPod").is(':hidden')
+            && $("#defKarp").is(':hidden') && $("#defLax").is(':hidden') && $("#defDuck").is(':hidden') && $("#defPod").is(':hidden'))
+            {
+                $("#instructBox").text("YOU WIN!!!!!")
+            }
+        
 });
-
-
-// Still need to figure out how to signal all enemies have been defeated
 
 
 
