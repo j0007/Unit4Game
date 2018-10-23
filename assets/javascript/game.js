@@ -118,22 +118,33 @@ $("#enPod").click(function() {
 
 $("#attackBtn").click(function() {
 
-defHealth = (defHealth - playerAttack);
-playerHealth = (playerHealth - defCounter);
-$("#instructBox").text("You've Dealt " + playerAttack + " Damage, " + "Enemy countered " + defCounter + " damage!" );
-$("#infoOne").text ("Name: " + playerName + " Health: " + playerHealth);
-$("#infoTwo").text ("Name: " + defName + " Health: " + defHealth);
-if (playerHealth > 0) { playerAttack = playerAttack + 8};
+    defHealth = (defHealth - playerAttack);
+    playerHealth = (playerHealth - defCounter);
+        $("#instructBox").text("You've Dealt " + playerAttack + " Damage, " + "Enemy countered " + defCounter + " damage!" );
+        $("#infoOne").text ("Name: " + playerName + " Health: " + playerHealth);
+        $("#infoTwo").text ("Name: " + defName + " Health: " + defHealth);
+            
+        if (playerHealth > 0) { playerAttack = playerAttack + 8} 
+        
+        if (playerHealth < 0) {
+                $("#instructBox").text("You have Fainted, You Lose!")
+                $("#attackBtn").hide()
+                    }
 
-if (playerHealth <= 0) {
-    alert("You have be defeated!")}
-
-if (defHealth <= 0) 
-{alert("You Win!")}
-
-
-console.log(playerAttack,playerHealth,defHealth,defCounter)
+        else if (defHealth <= 0){
+                $("#instructBox").text("Opponent has Fainted! You Win!")
+                $("#attackBtn").hide()
+                    }
+        
+        if (playerHealth <= 0 && defHealth <= 0) {
+                $("#instructBox").text("You've Both Fainted! Its a tie!")
+                $("#attackBtn").hide();
+                    }    
+    
 });
+
+// Still need to figure out how to switch enemies
+
 
 
 
