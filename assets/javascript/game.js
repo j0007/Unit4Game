@@ -23,6 +23,8 @@ var character = [ {
 
 
 //Attack Sequence Variables
+var playerName="";
+var defName=""
 var playerHealth ="";
 var defHealth ="";
 var playerAttack="";
@@ -32,18 +34,23 @@ var defCounter="";
 $("#enKarp,#enLax,#enDuck,#enPod").hide();
 $("#defKarp,#defLax,#defDuck,#defPod").hide();
 
-//properties
-function addproperties() {
-    $("#infoOne").append("Name: " + character[i].name + "<br>");
-    $("#infoOne").append("Health: " + character[i].health + "<br>");
-    playerHealth = character[i].health
-   
 
+//properties
+
+function addproperties() {
+    $("#infoOne").text ("Name: " + character[i].name + " Health: " + character[i].health);
+    $("#instructBox").text("Choose Your Enemy!");
+    playerName = character[i].name;
+    playerAttack = character[i].attack;
+    playerHealth = character[i].health;
 }
 
 function addproperties2() {
-    $("#infoTwo").append("Name: " + character[i].name + "<br>");
-    $("#infoTwo").append("Health: " + character[i].health + "<br>");
+    $("#infoTwo").text ("Name: " + character[i].name + " Health: " + character[i].health);
+    $("#instructBox").text("Fight!");
+    defName = character[i].name;
+    defCounter = character[i].counterAttack;
+    defHealth = character[i].health;
  
 }
 
@@ -54,41 +61,25 @@ function addproperties2() {
  $("#magiKarp").click(function() {
      i=0; addproperties();
      $("#snorLax,#psyDuck,#metaPod").hide();
-     $("#instructBox").text("Choose Your Enemy!");
      $("#enLax,#enDuck,#enPod").show();
-     playerAttack = character[i].attack;
-     playerHealth = character[i].health;
      }); 
-
-  
     
  $("#snorLax").click(function() {
      i=1; addproperties();
      $("#magiKarp,#psyDuck,#metaPod").hide();
-     $("#instructBox").text("Choose Your Enemy!");
      $("#enKarp,#enDuck,#enPod").show();
-     playerAttack = character[i].attack;
-     playerHealth = character[i].health;
-
       });
 
  $("#psyDuck").click(function() {
      i=2; addproperties();
      $("#snorLax,#magiKarp,#metaPod").hide();
-     $("#instructBox").text("Choose Your Enemy!");
      $("#enLax,#enKarp,#enPod").show();
-     playerAttack = character[i].attack;
-     playerHealth = character[i].health;
       });
 
  $("#metaPod").click(function() {
      i=3; addproperties();; 
      $("#snorLax,#psyDuck,#magiKarp").hide();
-     $("#instructBox").text("Choose Your Enemy!");
      $("#enLax,#enDuck,#enKarp").show();
-     playerAttack = character[i].attack;
-     playerHealth = character[i].health;
-
       });
     
 
@@ -100,38 +91,25 @@ function addproperties2() {
 $("#enKarp").click(function() {
     i=0; addproperties2();
     $("#enKarp").hide();
-    $("#instructBox").text("Fight!");
     $("#defKarp").show();
-    defCounter = character[i].counterAttack;
-    defHealth = character[i].health;
     });
    
 $("#enLax").click(function() {
     i=1; addproperties2();
     $("#enLax").hide();
-    $("#instructBox").text("Fight!");
     $("#defLax").show();
-    defCounter = character[i].counterAttack;
-    defHealth = character[i].health;
-
      });
 
 $("#enDuck").click(function() {
     i=2; addproperties2();
     $("#enDuck").hide();
-    $("#instructBox").text("Fight!");
     $("#defDuck").show();
-    defCounter = character[i].counterAttack;
-    defHealth = character[i].health;
      });
 
 $("#enPod").click(function() {
     i=3; addproperties2();
     $("#enPod").hide();
-    $("#instructBox").text("Fight!");
     $("#defPod").show();
-    defCounter = character[i].counterAttack;
-    defHealth = character[i].health;
      });
    
 
@@ -143,9 +121,13 @@ $("#attackBtn").click(function() {
 defHealth = (defHealth - playerAttack);
 playerHealth = (playerHealth - defCounter);
 $("#instructBox").text("You've Dealt " + playerAttack + " Damage, " + "Enemy countered " + defCounter + " damage!" );
+$("#infoOne").text ("Name: " + playerName + " Health: " + playerHealth);
+$("#infoTwo").text ("Name: " + defName + " Health: " + defHealth);
 if (playerHealth > 0) { playerAttack = playerAttack + 8};
+
 if (playerHealth <= 0) {
     alert("You have be defeated!")}
+
 if (defHealth <= 0) 
 {alert("You Win!")}
 
