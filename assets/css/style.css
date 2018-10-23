@@ -20,9 +20,11 @@ img {
     height: 120px;
 }
 
-#info {
-    font-size: 15px;}
+.info {
+    font-size: 20px;
+}
 
 #instructBox {
-    font-size: 12px;
+    font-size: 13px;
 }
+

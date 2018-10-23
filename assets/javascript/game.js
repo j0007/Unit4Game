@@ -92,24 +92,28 @@ $("#enKarp").click(function() {
     i=0; addproperties2();
     $("#enKarp").hide();
     $("#defKarp").show();
+    $("#attackBtn").show();
     });
    
 $("#enLax").click(function() {
     i=1; addproperties2();
     $("#enLax").hide();
     $("#defLax").show();
+    $("#attackBtn").show();
      });
 
 $("#enDuck").click(function() {
     i=2; addproperties2();
     $("#enDuck").hide();
     $("#defDuck").show();
+    $("#attackBtn").show();
      });
 
 $("#enPod").click(function() {
     i=3; addproperties2();
     $("#enPod").hide();
     $("#defPod").show();
+    $("#attackBtn").show();
      });
    
 
@@ -126,24 +130,26 @@ $("#attackBtn").click(function() {
             
         if (playerHealth > 0) { playerAttack = playerAttack + 8} 
         
-        if (playerHealth < 0) {
+        if (playerHealth <= 0) {
                 $("#instructBox").text("You have Fainted, You Lose!")
                 $("#attackBtn").hide()
                     }
 
         else if (defHealth <= 0){
-                $("#instructBox").text("Opponent has Fainted! You Win!")
-                $("#attackBtn").hide()
+                $("#instructBox").text("Choose Another Opponent!")
+                $("#defKarp,#defLax,#defDuck,#defPod").hide();
+                $("#attackBtn").hide();
                     }
         
         if (playerHealth <= 0 && defHealth <= 0) {
                 $("#instructBox").text("You've Both Fainted! Its a tie!")
                 $("#attackBtn").hide();
-                    }    
+                    }
     
 });
 
-// Still need to figure out how to switch enemies
+
+// Still need to figure out how to signal all enemies have been defeated
 
 
 
